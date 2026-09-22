@@ -6,7 +6,7 @@
     <title>Majid Razak | Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -14,22 +14,42 @@
     <div class="background-elements">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
+        <div class="grid-lines"></div>
+        <div class="cursor-glow"></div>
     </div>
 
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">MR<span>.</span></a>
             <ul class="nav-links">
+                <li class="nav-label">Explore</li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#certifications">Credentials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="desktop-controls">
+                <div class="section-rail" aria-label="Page sections">
+                    <a href="#services"><i class="fas fa-cubes"></i><span>Services</span></a>
+                    <a href="#projects"><i class="fas fa-arrow-trend-up"></i><span>Work</span></a>
+                    <a href="#experience"><i class="fas fa-briefcase"></i><span>Journey</span></a>
+                    <a href="#analytics"><i class="fas fa-chart-simple"></i><span>Insights</span></a>
+                    <a href="#contact"><i class="fas fa-paper-plane"></i><span>Connect</span></a>
+                </div>
+                <div class="theme-switcher" aria-label="Choose color theme">
+                    <button class="theme-button theme-default" data-theme-choice="default" aria-label="Use default theme" title="Default theme"></button>
+                    <button class="theme-button theme-white" data-theme-choice="white" aria-label="Use white theme" title="White theme"></button>
+                    <button class="theme-button theme-green" data-theme-choice="green" aria-label="Use green theme" title="Green theme"></button>
+                </div>
             </div>
+            <a href="#contact" class="nav-cta">Let's talk <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
@@ -38,7 +58,7 @@
         <section id="hero" class="hero">
             <div class="container hero-content">
                 <div class="hero-text reveal">
-                    <p class="subtitle">Hello, I'm</p>
+                    <p class="subtitle"><span class="status-dot"></span> Available for select projects</p>
                     <h1 class="title">Majid Razak</h1>
                     <h2 class="role">Software <span class="gradient-text">Engineer</span></h2>
                     <p class="summary">
@@ -46,6 +66,7 @@
                     </p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="text-link">See my work <i class="fas fa-arrow-down"></i></a>
                         <div class="social-links">
                             <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
@@ -54,11 +75,14 @@
                 </div>
                 <div class="hero-image reveal">
                     <div class="image-wrapper">
+                        <span class="image-frame-label">MR / 2024</span>
+                        <span class="image-frame-line"></span>
                         <!-- REPLACE THIS URL WITH YOUR ACTUAL IMAGE PATH -->
                         <img src="https://ui-avatars.com/api/?name=Majid+Razak&size=400&background=1e293b&color=3b82f6&font-size=0.33&bold=true" alt="Majid Razak - Software Engineer" id="profile-img">
                     </div>
                 </div>
             </div>
+            <a href="#services" class="scroll-cue" aria-label="Scroll to services"><span>Scroll to explore</span><i class="fas fa-arrow-down"></i></a>
         </section>
 
         <!-- Stats Section -->

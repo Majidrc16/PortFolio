@@ -1,16 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
+    const main = document.querySelector('main');
+    const routeWipe = document.createElement('div');
+    routeWipe.className = 'route-wipe';
+    body.appendChild(routeWipe);
+
+    const themeButtons = document.querySelectorAll('[data-theme-choice]');
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'default';
+    const applyTheme = (theme) => {
+        if (theme === 'default') {
+            body.removeAttribute('data-theme');
+        } else {
+            body.dataset.theme = theme;
+        }
+        themeButtons.forEach((button) => button.classList.toggle('active', button.dataset.themeChoice === theme));
+        localStorage.setItem('portfolio-theme', theme);
+    };
+    applyTheme(savedTheme);
+    themeButtons.forEach((button) => button.addEventListener('click', () => applyTheme(button.dataset.themeChoice)));
+
+    const routeNames = { hero: 'Home', services: 'Services', about: 'Skills', experience: 'Experience', projects: 'Projects', analytics: 'Analytics', certifications: 'Credentials', contact: 'Contact' };
+    const navigateToHash = (hash, animate = true) => {
+        const targetId = hash.replace('#', '') || 'hero';
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        if (animate) {
+            routeWipe.classList.remove('active');
+            void routeWipe.offsetWidth;
+            routeWipe.classList.add('active');
+            main.classList.remove('route-enter');
+            void main.offsetWidth;
+            main.classList.add('route-enter');
+        }
+        document.title = `${routeNames[targetId] || 'Portfolio'} | Majid Razak`;
+        target.scrollIntoView({ behavior: animate ? 'smooth' : 'auto', block: 'start' });
+    };
+    window.addEventListener('hashchange', () => navigateToHash(window.location.hash));
+    if (window.location.hash) navigateToHash(window.location.hash, false);
+
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
+    const updateNavbar = () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-    });
+    };
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
 
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
@@ -19,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
         if (navLinks.classList.contains('active')) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
@@ -34,8 +76,33 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.remove('active');
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
+    document.querySelectorAll('.section-rail a').forEach(link => link.addEventListener('click', () => {
+        document.querySelectorAll('.section-rail a').forEach((railLink) => railLink.classList.remove('active'));
+        link.classList.add('active');
+    }));
+
+    // Keep the navigation context-aware while the visitor moves through the page.
+    const trackedSections = [...document.querySelectorAll('main section[id]')];
+    const navItems = [...document.querySelectorAll('.nav-links a')];
+    const railItems = [...document.querySelectorAll('.section-rail a')];
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                navItems.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+                railItems.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+            }
+        });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    trackedSections.forEach((section) => sectionObserver.observe(section));
+
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('pointermove', (event) => {
+        cursorGlow.style.left = `${event.clientX}px`;
+        cursorGlow.style.top = `${event.clientY}px`;
+    }, { passive: true });
 
     // Contact Form Submission
     const contactForm = document.getElementById('contactForm');
@@ -129,7 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach((el) => {
+    document.querySelectorAll('.reveal').forEach((el, index) => {
+        el.dataset.revealDelay = (index % 4).toString();
         observer.observe(el);
     });
 
