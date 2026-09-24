@@ -517,6 +517,21 @@ h1, h2, h3, h4, .logo {
     color: var(--accent-1);
 }
 
+/* Individual project identities */
+.project-card { position: relative; overflow: hidden; min-height: 290px; }
+.project-card::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--project-accent, var(--accent-1)); transform: scaleX(0.18); transform-origin: left; transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.project-card:hover::before { transform: scaleX(1); }
+.project-kicker { display: block; margin-bottom: 0.55rem; color: var(--project-accent, var(--accent-1)); font: 0.62rem var(--font-mono); letter-spacing: 0.1em; }
+.project-card h3 { letter-spacing: -0.04em; }
+.project-card .project-badge { color: var(--project-accent, var(--accent-2)); background: color-mix(in srgb, var(--project-accent, var(--accent-2)) 12%, transparent); }
+.project-card .project-tech { color: var(--project-accent, var(--accent-1)); }
+.project-card .project-details li::before { color: var(--project-accent, var(--accent-1)); }
+.project-pif { --project-accent: #2563eb; }
+.project-neom { --project-accent: #0f766e; }
+.project-etqan { --project-accent: #7c3aed; }
+.project-milebi { --project-accent: #d97706; }
+.project-azka { --project-accent: #db4f72; }
+
 /* Testimonials Section */
 .testimonials-grid {
     display: grid;
