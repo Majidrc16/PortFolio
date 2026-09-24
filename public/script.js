@@ -203,76 +203,161 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize ApexCharts if elements exist
     if (document.querySelector('#techDonutChart') && typeof ApexCharts !== 'undefined') {
-        const donutOptions = {
-            series: [45, 30, 15, 10],
-            labels: ['Frontend (React/Tailwind)', 'Backend (Node.js/PHP)', 'Databases (SQL)', 'QA/Testing'],
+        const capabilityMixOptions = {
+            series: [
+                {
+                    name: 'Delivery Focus',
+                    type: 'bar',
+                    data: [88, 94, 82, 90, 76, 84]
+                },
+                {
+                    name: 'Impact Index',
+                    type: 'line',
+                    data: [72, 86, 78, 92, 68, 87]
+                }
+            ],
             chart: {
-                type: 'donut',
-                height: 350,
-                background: 'transparent',
-                fontFamily: 'Inter, sans-serif'
-            },
-            theme: {
-                mode: 'dark',
-                palette: 'palette1'
-            },
-            stroke: {
-                show: true,
-                colors: ['rgba(255,255,255,0.05)'],
-                width: 1
-            },
-            dataLabels: {
-                enabled: false
-            },
-            legend: {
-                position: 'bottom'
-            }
-        };
-
-        const donutChart = new ApexCharts(document.querySelector("#techDonutChart"), donutOptions);
-        donutChart.render();
-
-        const barOptions = {
-            series: [{
-                name: 'Projects Completed',
-                data: [3, 5, 8, 12, 18, 25]
-            }],
-            chart: {
-                type: 'bar',
+                type: 'line',
                 height: 350,
                 background: 'transparent',
                 toolbar: { show: false },
-                fontFamily: 'Inter, sans-serif'
+                fontFamily: 'Inter, sans-serif',
+                foreColor: '#dfe7ff'
             },
-            theme: { mode: 'dark' },
-            colors: ['#3b82f6'],
+            theme: { mode: 'dark', palette: 'palette10' },
+            colors: ['#8b5cf6', '#38bdf8'],
+            stroke: {
+                width: [0, 3],
+                curve: 'smooth'
+            },
+            fill: {
+                opacity: [0.9, 0.2]
+            },
+            markers: {
+                size: [0, 5],
+                strokeWidth: 0
+            },
             plotOptions: {
                 bar: {
-                    borderRadius: 4,
-                    horizontal: false,
-                    columnWidth: '50%'
+                    borderRadius: 6,
+                    columnWidth: '42%'
                 }
             },
             dataLabels: {
                 enabled: false
             },
             xaxis: {
-                categories: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                categories: ['AI', 'Oracle', 'PMO', 'Frontend', 'Backend', 'QA'],
                 axisBorder: { show: false },
-                axisTicks: { show: false }
+                axisTicks: { show: false },
+                labels: {
+                    style: {
+                        colors: ['#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff']
+                    }
+                }
             },
             yaxis: {
-                show: false
+                max: 100,
+                labels: {
+                    formatter: (value) => `${value}%`,
+                    style: { colors: ['#dfe7ff'] }
+                }
+            },
+            grid: {
+                borderColor: 'rgba(255,255,255,0.05)',
+                strokeDashArray: 4,
+                xaxis: { lines: { show: true } },
+                yaxis: { lines: { show: true } }
+            },
+            legend: {
+                position: 'bottom',
+                labels: {
+                    colors: ['#dfe7ff']
+                }
+            },
+            tooltip: {
+                shared: true,
+                intersect: false,
+                theme: 'dark'
+            }
+        };
+
+        const capabilityMixChart = new ApexCharts(document.querySelector('#techDonutChart'), capabilityMixOptions);
+        capabilityMixChart.render();
+
+        const deliveryMomentumOptions = {
+            series: [{
+                name: 'Project Output',
+                type: 'area',
+                data: [40, 52, 66, 74, 88, 96]
+            }, {
+                name: 'Team Velocity',
+                type: 'line',
+                data: [35, 48, 60, 70, 82, 92]
+            }],
+            chart: {
+                type: 'line',
+                height: 350,
+                background: 'transparent',
+                toolbar: { show: false },
+                fontFamily: 'Inter, sans-serif',
+                foreColor: '#dfe7ff'
+            },
+            theme: { mode: 'dark' },
+            colors: ['#22c55e', '#f59e0b'],
+            stroke: {
+                width: [0, 3],
+                curve: 'smooth'
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shade: 'dark',
+                    opacityFrom: 0.7,
+                    opacityTo: 0.08,
+                    stops: [0, 100]
+                }
+            },
+            markers: {
+                size: [0, 4],
+                strokeWidth: 0
+            },
+            xaxis: {
+                categories: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6'],
+                axisBorder: { show: false },
+                axisTicks: { show: false },
+                labels: {
+                    style: {
+                        colors: ['#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff', '#dfe7ff']
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    formatter: (value) => `${value}%`,
+                    style: { colors: ['#dfe7ff'] }
+                }
             },
             grid: {
                 borderColor: 'rgba(255,255,255,0.05)',
                 strokeDashArray: 4,
                 xaxis: { lines: { show: true } },
                 yaxis: { lines: { show: false } }
+            },
+            legend: {
+                position: 'bottom',
+                labels: {
+                    colors: ['#dfe7ff']
+                }
+            },
+            tooltip: {
+                shared: true,
+                intersect: false,
+                theme: 'dark'
             }
         };
 
-        const barChart = new ApexCharts(document.querySelector("#focusBarChart"), barOptions);
-        barChart.render();
+        const deliveryMomentumChart = new ApexCharts(document.querySelector('#focusBarChart'), deliveryMomentumOptions);
+        deliveryMomentumChart.render();
     }
 });

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majid Razak | CV</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #111827;
+            --panel-2: #1f2937;
+            --text: #f8fafc;
+            --muted: #cbd5e1;
+            --accent: #60a5fa;
+            --accent-2: #8b5cf6;
+            --line: rgba(255,255,255,0.12);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #111827);
+            color: var(--text);
+            padding: 32px;
+        }
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+            background: rgba(17, 24, 39, 0.96);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 32px 36px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 20px;
+            margin-bottom: 22px;
+        }
+        h1 {
+            margin: 0 0 8px;
+            font-size: 2.3rem;
+        }
+        .role {
+            margin: 0;
+            color: var(--accent);
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .contact {
+            text-align: right;
+            font-size: 0.96rem;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+        .contact a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .section {
+            margin-top: 24px;
+        }
+        .section h2 {
+            margin: 0 0 12px;
+            font-size: 1.05rem;
+            color: #dbeafe;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 8px;
+        }
+        p, li {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.97rem;
+        }
+        ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+        }
+        .tag-list li {
+            background: rgba(96, 165, 250, 0.12);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 999px;
+            padding: 7px 12px;
+            color: var(--text);
+            font-size: 0.8rem;
+        }
+        .actions {
+            margin-top: 26px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+        @media (max-width: 700px) {
+            body { padding: 18px; }
+            .page { padding: 20px; }
+            .header, .two-col { grid-template-columns: 1fr; display: block; }
+            .contact { text-align: left; margin-top: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div>
+                <h1>Majid Razak</h1>
+                <p class="role">Software Engineer</p>
+            </div>
+            <div class="contact">
+                <div>Anantnag, Jammu & Kashmir, India</div>
+                <div><a href="tel:+917889368374">+91-7889368374</a></div>
+                <div><a href="mailto:majidrc16@gmail.com">majidrc16@gmail.com</a></div>
+                <div><a href="https://www.linkedin.com/in/majid-razak-chasballi-1202aa1bb/" target="_blank">linkedin.com/in/majid-razak-chasballi-1202aa1bb</a></div>
+                <div><a href="https://github.com/Majidrc16" target="_blank">github.com/Majidrc16</a></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Profile</h2>
+            <p>Software engineer with experience building scalable web applications, dashboard-driven analytics products, and AI-enabled workflows. Skilled in frontend and backend engineering, data visualization, and QA-driven quality assurance for enterprise solutions.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Skills</h2>
+            <div class="two-col">
+                <ul class="tag-list">
+                    <li>JavaScript</li>
+                    <li>TypeScript</li>
+                    <li>React</li>
+                    <li>Next.js</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                    <li>PostgreSQL</li>
+                    <li>MySQL</li>
+                </ul>
+                <ul class="tag-list">
+                    <li>Tailwind CSS</li>
+                    <li>ApexCharts</li>
+                    <li>Highcharts</li>
+                    <li>Power BI</li>
+                    <li>Oracle Analytics</li>
+                    <li>Primavera</li>
+                    <li>Selenium</li>
+                    <li>JIRA</li>
+                    <li>Git</li>
+                    <li>AI Integration</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <p><strong>Software Engineer</strong> — Alawwah Technology Consultants, Riyadh (Remote)<br><em>May 2024 – Present</em></p>
+            <ul>
+                <li>Developed responsive full-stack applications using React and Node.js for enterprise dashboards and business workflows.</li>
+                <li>Created and executed QA strategies for UI and API validation using JIRA and Selenium to reduce defects and improve reliability.</li>
+                <li>Built data validation and reporting workflows using PostgreSQL to support operational decisions and analytics.</li>
+            </ul>
+
+            <p><strong>Software Developer</strong> — Graphic Weave, Srinagar<br><em>Sept 2023 – Apr 2024</em></p>
+            <ul>
+                <li>Built mobile-first frontend interfaces with React and Tailwind CSS for smooth client-facing experiences.</li>
+                <li>Integrated REST APIs and optimized front-end data flow for performance and usability.</li>
+                <li>Supported product teams with scalable UI implementation and maintainable component architecture.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>PIF:</strong> Built investment and analytics dashboards for sovereign wealth monitoring and trend analysis.</li>
+                <li><strong>NEOM:</strong> Contributed to smart city digital experiences and scalable frontend solutions.</li>
+                <li><strong>ETQAN:</strong> Worked on portfolio management workflows for project visibility and tracking.</li>
+                <li><strong>MileBI:</strong> Delivered analytics features with strong QA validation and data synchronization.</li>
+                <li><strong>Azka Namkeen:</strong> Developed an e-commerce platform with search, ordering, and backend logic.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Foundations of Project Management — Google</li>
+                <li>Software Engineering Essentials — IBM</li>
+                <li>Foundations of Front-End Coding — Microsoft</li>
+                <li>Object-Oriented Design — University of Alberta</li>
+                <li>React JS Crash Course — Udemy</li>
+            </ul>
+        </div>
+
+        <div class="actions">
+            <a class="btn" href="/" target="_blank">Back to Portfolio</a>
+            <a class="btn" href="javascript:window.print()">Print / Save as PDF</a>
+        </div>
+    </div>
+</body>
+</html>
